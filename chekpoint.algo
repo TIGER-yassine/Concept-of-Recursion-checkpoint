@@ -1,0 +1,42 @@
+PROCEDURE swap(a,b:INTEGER)
+VAR
+    temp:INTEGER
+BEGIN
+    temp:=a
+    a:=b
+    b:=temp
+END
+
+
+ALGORITHM sort
+VAR
+    i,j:INTEGER
+    arr:= ARRAY_OF INTEGER
+    n:INTEGER
+BEGIN
+    Read(arr)
+    n:=arr.length-1
+    FOR i FROM 1 TO n STEP step 1 DO
+        FOR j FROM 0 TO n-1 STEP step 1 DO
+            IF (arr[j]>arr[j+1]) THEN
+                swap(arr[j],arr[j+1])
+            END_IF
+        END_FOR
+    END_FOR
+    Write("array has been sorted" , arr)
+END
+
+
+ALGORITHM palyndrom
+VAR
+    word:STRING
+BEGIN
+    Read(word)
+ IF (word.length<=1) THEN
+    Write("this word is a palyndrom")
+ END_IF
+ IF (word[0]<>word[word.length-1]) THEN
+    Write("this word is not a palyndrom")
+ END_IF
+ palyndrom(word[1,-1])
+END
